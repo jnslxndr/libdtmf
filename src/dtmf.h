@@ -3,7 +3,7 @@
 //  libdtmf
 //
 //  Created by jens on 12.04.13.
-//  Copyright (c) 2013 jens alexander ewald. All rights reserved.
+//  Copyleft (ɔ) 2013 jens alexander ewald. GPL applies.
 //
 
 #ifndef __LIB_DTMF__

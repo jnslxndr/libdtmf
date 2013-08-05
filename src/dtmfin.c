@@ -2,7 +2,7 @@
 //  libdtmf – dtmfin
 //
 //  Created by jens on 12.04.13.
-//  Copyright (c) 2013 jens alexander ewald. GPL applies.
+//  Copyleft (ɔ) 2013 jens alexander ewald. GPL applies.
 //
 
 #include <stdlib.h>
