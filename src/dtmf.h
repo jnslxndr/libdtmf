@@ -21,7 +21,7 @@
 #define BYTES_PER_CHANNEL	2
 #define BUFFER_SIZE			((int)(MIN_TONE_LENGTH * SAMPLING_RATE * BYTES_PER_CHANNEL) / FRAMES_PER_TONE )
 
-#define NO_CODE '\0'
+#define NO_CODE 0xFF
 
 #define kDefaultNoiseToleranceFactor 2.5
 
