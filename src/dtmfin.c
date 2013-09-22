@@ -31,7 +31,7 @@ static int SamplingRate = SAMPLING_RATE;
 static int BufferSize = 360;
 
 static double	noiseTolerenceFactor   = kDefaultNoiseToleranceFactor;
-static PowerMeasurementMethod pmm = kDefaultPowerMeasurementMethod;
+static enum PowerMeasurementMethod pmm = kDefaultPowerMeasurementMethod;
 
 // Filter coefficients
 
@@ -148,7 +148,7 @@ void DTMFSetup(int sampling_rate, int buffer_size) {
   BufferSize = buffer_size;
 }
 
-void setPowerMeasurementMethod(PowerMeasurementMethod m) {
+void setPowerMeasurementMethod(enum PowerMeasurementMethod m) {
   pmm = m;
 }
 
@@ -232,6 +232,7 @@ char validate_code()
 		// Check we have both the row and column and fail if we have 2 rows or 2 columns
 		if (( row == -1 ) || ( col == -1 )) {
 			// We have to rows or 2 cols, fail
+			return NO_CODE;
 		} else {
 			//printf("DTMFcodey %c\n",dtmfCodes[row][col-4]);
 			return dtmfCodes[row][col-4];		// We got it
@@ -324,8 +325,6 @@ int filter(const void* buffer, size_t size) {
 }
 
 void DTMFDecode(const void* buffer, const size_t size, char *code) {
-  if ( filter(buffer,size) < 0) return;
-	char _code = validate_code();
-  if (_code != NO_CODE) *code = _code;
+  *code = filter(buffer,size) < 0 ? NO_CODE : validate_code();
 }
 

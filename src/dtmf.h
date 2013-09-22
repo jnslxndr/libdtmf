@@ -16,12 +16,13 @@
 #endif
 
 
-#define MIN_TONE_LENGTH		0.045	// 45ms
-#define FRAMES_PER_TONE		2
+#define MIN_TONE_LENGTH		0.010	// 45ms
+#define FRAMES_PER_TONE		1
 #define BYTES_PER_CHANNEL	2
 #define BUFFER_SIZE			((int)(MIN_TONE_LENGTH * SAMPLING_RATE * BYTES_PER_CHANNEL) / FRAMES_PER_TONE )
 
-#define NO_CODE 0xFF
+// #define NO_CODE 255
+const char NO_CODE = '\0';
 
 #define kDefaultNoiseToleranceFactor 2.5
 
